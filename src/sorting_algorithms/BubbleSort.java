@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = new int[]{23, 12, 1, -4, 400, 55, -22, 168};
-        System.out.println("Unordered array is :" + Arrays.toString(arr));
+        System.out.println("Unsorted array is :" + Arrays.toString(arr));
         bubbleSort(arr);
         System.out.println("Array after bubble sort is :" + Arrays.toString(arr));
     }
