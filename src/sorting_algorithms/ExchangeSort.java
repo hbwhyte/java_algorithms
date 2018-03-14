@@ -18,8 +18,11 @@ public class ExchangeSort {
                     arr[i] = arr[j];
                     arr[j] = t;
                 }
+                System.out.println(Arrays.toString(arr));
             }
         }
-
     }
+
 }
+
+
