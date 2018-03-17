@@ -2,7 +2,7 @@ package data_structures.stacks;
 /**
  * The <code>TowerOfHanoi</code> class represents a working example of
  * my @GenericStack, while solving the classic
- * [Tower of Hanoi][https://en.wikipedia.org/wiki/Tower_of_Hanoi) game.
+ * [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) game.
  * The object of the game is to move the elements of tower A to tower C
  * following these rules:
  *    - Only one disk can be moved at a time.
@@ -15,8 +15,6 @@ package data_structures.stacks;
  *
  * The game is solved using the optimal iterative solution, and thus will
  * always be solved in  2^n − 1 moves.
- *
- * @author  Heather Whyte
  */
 public class TowerOfHanoi {
 
@@ -144,7 +142,7 @@ public class TowerOfHanoi {
                     d1 = " ";
                 }
             }
-            catch (Exception e){
+            catch (Exception exc){
             }
             try
             {
@@ -153,7 +151,7 @@ public class TowerOfHanoi {
                     d2 = " ";
                 }
             }
-            catch(Exception e){
+            catch(Exception exc){
             }
             try
             {
@@ -162,13 +160,13 @@ public class TowerOfHanoi {
                     d3 = " ";
                 }
             }
-            catch (Exception e){
+            catch (Exception exc){
             }
-            System.out.println("  "+d1+"  |  "+d2+"  |  "+d3);
+            System.out.println("  " + d1 + "  |  " + d2 + "  |  " + d3);
         }
         System.out.println("-----|-----|-----");
-        System.out.println("  A\t |  B  |  C");
-        System.out.println("\n");
+        System.out.println("  A  |  B  |  C");
+        System.out.println();
         counter++;
     }
 }
