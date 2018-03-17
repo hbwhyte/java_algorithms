@@ -27,9 +27,13 @@ This repo is a collection of basic Java algorithms and data structures.
  - Recursive Binary Search
 
 ## Data Structures
-  - Linked List
-  - Doubly Linked List
-  - **Queue**
-  - Stack
+  * Linked List
+  * Doubly Linked List
+  * **Queue**: An abstract data type that is a collection of elements with a First In, First Out order. This queue holds 
+  a generic array, and contains the methods add(), offer(), remove(), poll(), peek(), and isEmpty(). Classes BasicQueue 
+  and PartnerQueues contain methods to test GenericQueue, both simply and with synchronized multithreading.
+  * **Stack**: An abstract data type that is a collection of elements with a Last In, First Out order. This stack holds 
+  a generic array, and contains the methods push(), pop(), peek(), get(), and isEmpty(). Class TowerOfHanoi solves the 
+  classic puzzle [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) using my GenericStack class.
   - Hash map
   - Binary Search Tree
