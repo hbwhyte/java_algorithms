@@ -1,34 +1,73 @@
 package data_structures.queues;
 
+import java.util.NoSuchElementException;
+
 public class GenericQueue<E> {
     // Declare variables
     private E[] qArray;
-    private int putloc;
-    private int getloc;
+    private int putloc, getloc;
+    private boolean isEmpty;
 
     // Constructor
     public GenericQueue(E[] qArray) {
         this.qArray = qArray;
         putloc = getloc = 0;
+        isEmpty = true;
     }
 
-    /** This add() inserts the specified element {@code a} into the next available location in the queue,
+    /**
+     * Inserts the specified element e into the next available location in the queue,
      * if the array has capacity (is not full).
-     * */
-    public synchronized void add(E a) {
-        // should this throw an exception instead of an if statement?
-        if (putloc == qArray.length) {
-            System.out.println("Queue is full.");
-            return;
-        } else {
-        qArray[putloc++] = a;
+     *
+     * @param e is the element to add
+     * @return boolean - true if element was successfully added, else false
+     * @throws IllegalStateException - if the queue is full and the element cannot be added
+     */
+    public synchronized boolean add(E e) {
+        try {
+            qArray[putloc++] = e;
+            return true;
+        } catch (IllegalStateException ise) {
+            System.out.println(ise);
+            return false;
         }
     }
 
-    /** This {@code remove()} retrieves and removes whatever element is at the head of the queue, if the queue is
+    /**
+     * Inserts the specified element e into the next available location in the queue,
+     * if the array has capacity (is not full).
+     *
+     * @param e is the element to add
+     * @return boolean - true if item was successfully added, else false
+     */
+    public synchronized boolean offer(E e) {
+        if (putloc == qArray.length) {
+            System.out.println("Queue is full.");
+            return false;
+        } else {
+            qArray[putloc++] = e;
+            return true;
+        }
+    }
+
+    /**
+     * Retrieves and removes whatever element is at the head of the queue, if the queue is
      * not empty.
-     * */
-    public synchronized E remove() {
+     *
+     * @return element at the head of the queue
+     * @throws NoSuchElementException if the queue is empty
+     */
+    public synchronized E remove() throws NoSuchElementException {
+        return qArray[getloc++];
+    }
+
+    /**
+     * Retrieves and removes whatever element is at the head of the queue, if the queue is
+     * not empty.
+     *
+     * @return element at the head of the queue, null if the queue is empty.
+     */
+    public synchronized E poll() {
         if (putloc == getloc) {
             System.out.println("Queue is empty.");
             return null;
@@ -37,14 +76,25 @@ public class GenericQueue<E> {
         }
     }
 
-    /** This {@code peek()} retrieves, but does not remove, the element is at the head of the queue. If the queue is
-     * empty, it returns null.
-     * */
+    /**
+     * Retrieves, but does not remove, the element is at the head of the queue.
+     *
+     * @return element at the head of the queue, null if the queue is empty.
+     */
     public synchronized E peek() {
         if (putloc == getloc) {
             return null;
         } else {
             return qArray[getloc];
         }
+    }
+
+    /**
+     * Checks if the queue is empty or not
+     *
+     * @return true if the queue is empty, else false
+     */
+    public boolean isEmpty() {
+        return isEmpty;
     }
 }
