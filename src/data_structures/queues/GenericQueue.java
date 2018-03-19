@@ -1,5 +1,6 @@
 package data_structures.queues;
 
+import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 
 public class GenericQueue<E> {
@@ -21,14 +22,18 @@ public class GenericQueue<E> {
      *
      * @param e is the element to add
      * @return boolean - true if element was successfully added, else false
-     * @throws IllegalStateException - if the queue is full and the element cannot be added
+     * @throws ArrayIndexOutOfBoundsException - if the queue is full and the element cannot be added
+     * @throws InputMismatchException - if the element to be added is of the wrong type
      */
     public synchronized boolean add(E e) {
         try {
             qArray[putloc++] = e;
             return true;
-        } catch (IllegalStateException ise) {
-            System.out.println(ise);
+        } catch (ArrayIndexOutOfBoundsException aioob) {
+            System.out.println(aioob);
+            return false;
+        } catch (InputMismatchException ime) {
+            System.out.println(ime);
             return false;
         }
     }
